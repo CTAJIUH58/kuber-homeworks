@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mtool
+  labels:
+    app: depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: depl
+  template:
+    metadata:
+      labels:
+        app: depl
+    spec:
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - name: my-volume
+          mountPath: /output
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: pvcnfs
