@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mtoolport
+  namespace: default
+data:
+  HTTP_PORT: "8080"

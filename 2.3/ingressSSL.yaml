@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  labels:
+    name: ingress
+spec:
+  rules:
+    - host: my-cuber.ru
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 443
+
+  tls:
+    - hosts:
+        - my-cuber.ru
+      secretName: nginx-tls
