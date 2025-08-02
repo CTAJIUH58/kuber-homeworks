@@ -1,0 +1,8 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.19.1"
+
+appPort: 80
